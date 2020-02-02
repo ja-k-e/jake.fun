@@ -6,7 +6,7 @@ body {
 }
 
 section {
-  margin: 3rem auto;
+  margin: 6rem auto 3rem;
   max-width: 500px;
   width: 90%;
 }
@@ -19,7 +19,7 @@ p {
 
 h1 {
   font-size: 2rem;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 ul {
@@ -37,6 +37,14 @@ li {
 @media (min-width: 500px) {
   li {
     width: calc(50% - 1rem);
+  }
+}
+@media (min-width: 1000px) {
+  section {
+    max-width: 800px;
+  }
+  li {
+    width: calc(33.33% - 1.5rem);
   }
 }
 
