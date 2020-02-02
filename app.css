@@ -52,13 +52,6 @@ a {
   color: tomato;
   text-decoration: none;
 }
-li a {
-  color: inherit;
-  display: block;
-}
-li a:hover {
-  color: tomato;
-}
 
 p {
   line-height: 1.4;
