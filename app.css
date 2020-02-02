@@ -43,9 +43,6 @@ li {
   section {
     max-width: 800px;
   }
-  li {
-    width: calc(33.33% - 1.5rem);
-  }
 }
 
 a {
