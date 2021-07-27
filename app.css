@@ -1,55 +1,155 @@
-html,
+:root {
+  --color-interactive: yellow;
+  --color-background: blue;
+  --color-text: white;
+  --color-shadow: black;
+  --font-family-serif: Georgia, Times, serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+  font-family: var(--font-family-serif);
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 0;
+  background: var(--color-shadow);
+  margin: 0.5rem;
 }
 
 section {
-  margin: 6rem auto 3rem;
-  max-width: 500px;
-  width: 90%;
+  background: var(--color-background);
+  box-sizing: border-box;
+  color: var(--color-text);
+  padding: calc(var(--gutter) * 2);
+}
+section + section {
+  margin-top: 0.5rem;
 }
 
-h1,
-h2,
-p {
+section.support {
+  --color-background: red;
+}
+
+section.projects {
+  --color-background: black;
+  --color-shadow: blue;
+}
+
+section > div {
+  --column: 100%;
+  --font-scale: 2rem;
+  --gutter: 3rem;
+  margin: 0 auto;
+  padding: var(--gutter) 0;
+  width: min(1200px, calc(100% - var(--gutter)));
+}
+
+@media (min-width: 600px) {
+  section > div {
+    --column: 50%;
+  }
+}
+
+@media (min-width: 900px) {
+  section > div {
+    --font-scale: 3rem;
+    --gutter: 4rem;
+  }
+}
+
+h1, h2, h3, h4, h5, p {
   margin: 0;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 2em;
-}
-
-ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 1rem -0.5rem -0.5rem;
-  padding: 0;
-}
-
-li {
-  margin: 0.5rem;
-  width: calc(100% - 1rem);
-}
-@media (min-width: 500px) {
-  li {
-    width: calc(50% - 1rem);
-  }
-}
-@media (min-width: 1000px) {
-  section {
-    max-width: 800px;
-  }
+h1, h2, h3, .social a {
+  font-weight: bold;
+  line-height: 1;
 }
 
 a {
-  color: tomato;
+  color: var(--color-interactive);
+  display: inline-block;
+  line-height: 0.9;
+  padding-right: calc(var(--gutter) * 0.125);
   text-decoration: none;
+  text-shadow: 0.075em 0.075em 0 var(--color-shadow);
+}
+
+a:focus-visible {
+  color: var(--color-text);
+  outline: none;
+  position: relative;
+  text-decoration: underline;
+  z-index: 1;
+}
+@media (hover: hover) {
+  a:hover {
+    text-shadow: -0.075em -0.075em 0 var(--color-shadow);
+  }
+}
+
+h1 {
+  font-size: calc(var(--font-scale) * 1.2);
+}
+
+h2 {
+  font-size: calc(var(--font-scale) * 1.4);
+}
+
+.social a {
+  display: inline-block;
+  margin-bottom: calc(var(--gutter) * 0.125);
+}
+
+h3 {
+  margin-bottom: 0.25em;
+}
+
+h3, .social a {
+  font-family: var(--font-family-sans-serif);
+  font-size: calc(var(--font-scale) * 1.4);
 }
 
 p {
-  line-height: 1.4;
+  font-size: calc(var(--font-scale) * 0.8);
+}
+
+h1, h2 {
+  border-bottom: 0.085em solid var(--color-shadow);
+  display: inline-block;
+  line-height: 0.8;
+  padding-right: calc(var(--gutter) * 0.125);
+}
+
+h1, h2, p {
+  text-shadow: 0.1em 0.1em 0 var(--color-shadow);
+  font-style: italic;
+}
+
+h2 + p {
+  font-style: normal;
+  margin-top: calc(var(--gutter) * 0.5);
+}
+
+nav {
+  margin-top: calc(var(--gutter) * 1.5);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.blocks {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--gutter) * -0.5);
+  width: calc(100% + var(--gutter));
+}
+
+ul.blocks li {
+  box-sizing: border-box;
+  margin: calc(var(--gutter) * 0.5);
+  width: calc(var(--column) - var(--gutter));
 }
