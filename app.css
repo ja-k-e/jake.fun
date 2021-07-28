@@ -73,7 +73,6 @@ a {
   line-height: 0.9;
   padding-right: calc(var(--gutter) * 0.125);
   text-decoration: none;
-  text-shadow: 0.075em 0.075em 0 var(--color-shadow);
 }
 
 a:focus-visible {
@@ -122,8 +121,11 @@ h1, h2 {
   padding-right: calc(var(--gutter) * 0.125);
 }
 
-h1, h2, p {
+h1, h2, p, a {
   text-shadow: 0.1em 0.1em 0 var(--color-shadow);
+}
+
+h1, h2, p { 
   font-style: italic;
 }
 
