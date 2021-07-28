@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background: var(--color-shadow);
+  background: var(--color-interactive);
   margin: 0.5rem;
 }
 
