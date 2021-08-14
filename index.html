@@ -257,7 +257,7 @@
 
       function go() {
         init = true;
-        document.body.style.setProperty("--shadow-factor", "0.15em");
+        document.body.style.setProperty("--shadow-factor", "0.2em");
         let x = 1;
         let y = 1;
 
@@ -270,8 +270,8 @@
         update();
 
         window.addEventListener("mousemove", (event) => {
-          x = (event.clientX / window.innerWidth - 0.5) / 0.5;
-          y = (event.clientY / window.innerHeight - 0.5) / 0.5;
+          x = (event.clientX / window.innerWidth - 0.5) / -0.5;
+          y = (event.clientY / window.innerHeight - 0.5) / -0.5;
         });
         window.addEventListener("deviceorientation", (event) => {
           x = Math.min(20, Math.max(-20, event.gamma)) / -20;
