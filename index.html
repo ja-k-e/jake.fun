@@ -12,7 +12,10 @@
     <main>
       <section class="social">
         <div>
-          <h1>jake.fun <button id="fun" aria-label="Enable fun visual effect">!</button></h1>
+          <h1>
+            jake.fun
+            <button id="fun" aria-label="Enable fun visual effect">!</button>
+          </h1>
           <nav aria-label="Social media links">
             <ul>
               <li>
@@ -231,19 +234,23 @@
           return;
         }
         init = true;
-        if (
-          DeviceOrientationEvent &&
-          typeof DeviceOrientationEvent.requestPermission === "function" &&
-          !init
-        ) {
-          const permissionState =
-            await DeviceOrientationEvent.requestPermission();
-          if (permissionState === "granted") {
-            go();
+        try {
+          if (
+            "DeviceOrientationEvent" in window &&
+            typeof DeviceOrientationEvent.requestPermission === "function"
+          ) {
+            const permissionState =
+              await DeviceOrientationEvent.requestPermission();
+            if (permissionState === "granted") {
+              go();
+            } else {
+              alert("ok nevermind then");
+            }
           } else {
-            alert("ok nevermind then");
+            go();
           }
-        } else {
+        } catch (e) {
+          console.log(e);
           go();
         }
       });
@@ -254,7 +261,6 @@
         let x = 1;
         let y = 1;
 
-        
         function update() {
           document.body.style.setProperty("--shadow-multiply-x", x);
           document.body.style.setProperty("--shadow-multiply-y", y);
@@ -264,8 +270,8 @@
         update();
 
         window.addEventListener("mousemove", (event) => {
-          x = (event.clientX / window.innerWidth - 0.5) / 0.5; 
-          y = (event.clientY / window.innerHeight - 0.5) / 0.5; 
+          x = (event.clientX / window.innerWidth - 0.5) / 0.5;
+          y = (event.clientY / window.innerHeight - 0.5) / 0.5;
         });
         window.addEventListener("deviceorientation", (event) => {
           x = Math.min(20, Math.max(-20, event.gamma)) / -20;
