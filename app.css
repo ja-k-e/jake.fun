@@ -1,8 +1,7 @@
 :root {
-  --color-interactive: red;
+  --color-interactive: tomato;
   --color-text: black;
   --color-background: white;
-  --color-shadow: yellow;
   --font-family-serif: Georgia, Times, serif;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
@@ -18,7 +17,7 @@ html {
 }
 
 body {
-  background: var(--color-interactive);
+  background: var(--color-text);
   margin: calc(env(safe-area-inset-top, 0rem) + 0.5rem) 0.5rem calc(env(safe-area-inset-bottom, 0rem) + 0.5rem);
 }
 
@@ -29,7 +28,7 @@ section {
   padding: calc(var(--gutter) * 2);
 }
 
-section > div {
+section>div {
   --column: 100%;
   --font-scale: 2rem;
   --gutter: 3rem;
@@ -39,13 +38,13 @@ section > div {
 }
 
 @media (min-width: 600px) {
-  section > div {
+  section>div {
     --column: 50%;
   }
 }
 
 @media (min-width: 900px) {
-  section > div {
+  section>div {
     --font-scale: 3rem;
     --gutter: 4rem;
   }
@@ -83,6 +82,7 @@ a:focus-visible {
   text-decoration: underline;
   z-index: 1;
 }
+
 @media (hover: hover) {
   a:hover {
     color: var(--color-interactive);
@@ -108,39 +108,6 @@ h3,
   font-size: calc(var(--font-scale) * 1.1);
 }
 
-button {
-  appearance: none;
-  background: var(--color-text);
-  border-radius: 50%;
-  border: none;
-  box-shadow: var(--shadow-factor) var(--shadow-factor) 0 var(--color-shadow);
-  color: var(--color-background);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: calc(var(--font-scale) * 0.8);
-  font-weight: bold;
-  height: var(--font-scale);
-  line-height: var(--font-scale);
-  padding: 0;
-  position: absolute;
-  right: 1.5rem;
-  text-align: center;
-  top: 1.5rem;
-  width: var(--font-scale);
-}
-@media (hover: hover) {
-  button:hover {
-    background: var(--color-interactive);
-    box-shadow: var(--shadow-factor) var(--shadow-factor) 0 var(--color-text);
-  }
-}
-button:focus-visible {
-  box-shadow: 0 0 0 var(--shadow-factor) var(--color-text);
-  color: var(--color-text);
-  outline: none;
-  z-index: 1;
-}
-
 p {
   font-size: calc(var(--font-scale) * 0.6);
   line-height: 1.3;
@@ -148,11 +115,10 @@ p {
 
 h1,
 h2 {
-  border-bottom: 0.085em solid var(--color-interactive);
   display: inline-block;
   line-height: 0.8;
-  padding-right: calc(var(--gutter) * 0.125);
 }
+
 
 h1,
 h2,
@@ -160,7 +126,7 @@ p {
   font-style: italic;
 }
 
-h2 + p {
+h2+p {
   font-style: normal;
   margin-top: calc(var(--gutter) * 0.5);
 }
@@ -198,13 +164,17 @@ ul.blocks li a {
 
 ul.blocks li img {
   aspect-ratio: 1200 / 630;
-  background-color: var(--color-shadow);
+  background-color: var(--color-text);
   box-shadow: 0 0 0 calc(var(--shadow-factor) * 0.5) var(--color-text),
-    calc(var(--shadow-multiply-x) * var(--shadow-factor-animated))
-      calc(var(--shadow-multiply-y) * var(--shadow-factor-animated)) 0 0 var(--color-text);
+    calc(var(--shadow-multiply-x) * var(--shadow-factor-animated)) calc(var(--shadow-multiply-y) * var(--shadow-factor-animated)) 0 0 var(--color-text);
   display: block;
   height: auto;
   max-width: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+ul.blocks li a:hover img {
+  box-shadow: 0 0 0 calc(var(--shadow-factor) * 0.5) var(--color-interactive),
+    calc(var(--shadow-multiply-x) * var(--shadow-factor-animated)) calc(var(--shadow-multiply-y) * var(--shadow-factor-animated)) 0 0 var(--color-interactive);
 }
