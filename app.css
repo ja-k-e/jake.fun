@@ -1,5 +1,5 @@
 :root {
-  --color-interactive: tomato;
+  --color-interactive: oklch(0.86 0.3 154.29);
   --color-text: black;
   --color-background: white;
   --font-family-serif: Georgia, Times, serif;
@@ -85,7 +85,7 @@ a:focus-visible {
 
 @media (hover: hover) {
   a:hover {
-    color: var(--color-interactive);
+    text-shadow: calc(var(--shadow-multiply-x) * var(--shadow-factor-animated)) calc(var(--shadow-multiply-y) * var(--shadow-factor-animated)) 0 var(--color-interactive);
   }
 }
 
