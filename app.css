@@ -85,7 +85,8 @@ a:focus-visible {
 
 @media (hover: hover) {
   a:hover {
-    text-shadow: calc(var(--shadow-multiply-x) * var(--shadow-factor-animated)) calc(var(--shadow-multiply-y) * var(--shadow-factor-animated)) 0 var(--color-interactive);
+    text-shadow: calc(var(--shadow-multiply-x) * var(--shadow-factor-animated) * 0.4) 
+      calc(var(--shadow-multiply-y) * var(--shadow-factor-animated) * 0.4) 0 var(--color-interactive);
   }
 }
 
